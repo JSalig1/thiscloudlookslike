@@ -7,8 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+  <header class='navigation'>
+    <ul class='navigation-menu'>
+      <li><%= link_to "clouds", clouds_random_path %></li>
+    </ul>
+  </header>
+  <div>
+    <%= yield %>
+  </div>
 
 </body>
 </html>
