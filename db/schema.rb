@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140721212419) do
+ActiveRecord::Schema.define(version: 20140725195819) do
 
   create_table "clouds", force: true do |t|
     t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "comments", force: true do |t|
+    t.string   "body",       limit: 128, null: false
+    t.integer  "cloud_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
