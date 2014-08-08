@@ -4,8 +4,4 @@ class Cloud < ActiveRecord::Base
   def approved?
     approval_status == true
   end
-  
-  def filter_approved
-    
-  end
 end
