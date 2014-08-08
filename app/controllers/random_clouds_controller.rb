@@ -1,6 +1,7 @@
 class RandomCloudsController < ApplicationController
   def show
-    cloud = Cloud.all.sample
+    clouds = Cloud.all.select { |cloud| cloud.approved? }
+    cloud = clouds.sample
     redirect_to cloud_path(cloud)
   end
 end
