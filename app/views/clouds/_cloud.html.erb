@@ -1,16 +1,20 @@
 <div id='cloud'>
-<div id='cloud-image'>
-  <%= image_tag(@cloud.url, width: 600) %>
-</div>
+  <div id='cloud-image'>
+    <%= image_tag(@cloud.url, width: 600) %>
+  </div>
 
-<div id="comment-form">
-  <%= form_for([@cloud, @comment], remote: true) do |form| %>
-    <%= form.text_area :body, size: "55x5" %>
-    <%= form.submit %>
-  <% end %>
-</div>
+  <div id="comment-form">
+    <%= form_for([@cloud, @comment], remote: true) do |form| %>
+      <%= form.text_area :body, size: "55x5" %>
+      <%= form.submit %>
+    <% end %>
+  </div>
 
-<div id="comments-displayed">
+  <div id="comments-displayed">
 
-</div>
+  </div>
+  
+  <div id="perma-link">
+    <%= "perma-link: thiscloudlookslike.com/clouds/#{@cloud.id}"%>
+  </div>
 </div>
