@@ -3,6 +3,10 @@ class RandomCloudsController < ApplicationController
     clouds = Cloud.all.select { |cloud| cloud.approved? }
     @cloud = clouds.sample
     @comment = Comment.new
-    render "clouds/show"
+    
+    respond_to do |format|
+      format.html { render "clouds/show" }
+      format.js
+    end
   end
 end
