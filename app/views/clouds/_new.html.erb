@@ -1,0 +1,6 @@
+<%= form_for @cloud, html: { multipart: true } do |form| %>
+  <%= form.file_field :image %>
+  <%= form.label :remote_image_url, "or image URL" %>
+  <%= form.text_field :remote_image_url %>
+  <%= form.submit "submit" %>
+<% end %>
