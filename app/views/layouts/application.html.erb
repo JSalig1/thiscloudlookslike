@@ -3,19 +3,41 @@
 <head>
   <title>Thiscloudlookslike</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+
+  <!--[if lt IE 9]>
+    <%= javascript_include_tag "top/html5shiv.js" %>
+  <![endif]-->    
+
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53ef7f426dc4f433"></script>  
+
+  <%= javascript_include_tag "top/webfont.js" %>
+
+  <script type='text/javascript'>
+    WebFont.load({
+      google: {
+        families: ['Open+Sans+Condensed:300:latin']
+      }
+    });
+  </script>  
 </head>
 <body>
-  <header class='navigation'>
-    <ul class='navigation-menu'>
-      <li><%= link_to "next cloud", clouds_random_path, remote: true %></li>
-      <li><%= link_to "add cloud", new_cloud_path, remote: true %></li>
-    </ul>
+  <header>
+    This Cloud Looks Like          
   </header>
-  <div>
-    <%= yield %>
-  </div>
 
+  <main class='super-container full-width'>
+    <div class='container'>
+      <%= yield %>
+    </div>
+  </main>
+
+  <footer>
+    <%= link_to "Want to add a cloud?", new_cloud_path, remote: true %>
+    &nbsp;&nbsp;
+    &copy; 2014 For Fun by <a href='http://github.com/jsalig1'>jsalig1</a> and <a href='http://bitbucket.org/oliakaoil'>oliakaoil</a>
+  </footer>
+  
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 </body>
 </html>

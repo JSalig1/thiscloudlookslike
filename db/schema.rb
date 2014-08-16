@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140809234608) do
+ActiveRecord::Schema.define(version: 20140816151629) do
 
   create_table "clouds", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "approval_status", default: false
     t.string   "image"
+    t.string   "upload_path"
   end
 
   create_table "comments", force: true do |t|

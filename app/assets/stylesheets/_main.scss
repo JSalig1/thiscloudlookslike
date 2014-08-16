@@ -1,0 +1,74 @@
+
+header {
+  text-align: right;
+  padding: 15px;
+  margin-bottom: 20px;
+  color: $white;
+  background-color: $blue;
+  font-size: 14pt;
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  font-size: 8pt;
+  padding-top: 15px;
+}
+
+span.ajax-loader {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background-image: url(/assets/ajax-loader.gif);
+  background-position: top left;
+  background-repeat: no-repeat;
+}
+
+
+.cloud-page {
+
+  .comment-wrapper {
+    height: 350px;
+  }
+
+  .main-cloud-wrapper {
+    width: 540px;
+    height: 540px;
+    min-height: 540px;
+    overflow: hidden;
+    background-color: $light-blue;
+    text-align: center;
+
+    img {
+      display: none;
+      cursor: pointer;
+    }
+
+    .ajax-loader {
+      display: block;
+      margin: 254px auto 0px auto;
+    }
+  }
+
+  .navigation {
+    height: 300px;
+    vertical-align: bottom;
+    a {
+      font-size: 18pt;
+      text-decoration: none;
+    }
+
+    #perma-link {
+      margin-top: 15px;
+      height: 45px;
+    }
+  }
+
+  .share-container {
+    margin: 25px 0px 0px 0px;
+  }
+
+  .addthis_sharing_toolbox {
+    margin: 10px 0px 0px -2px;
+  }
+}

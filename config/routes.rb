@@ -1,9 +1,8 @@
 Thiscloudlookslike::Application.routes.draw do
-  root 'random_clouds#show'
+  root 'clouds#index'
 
-  get "/clouds/random" => "random_clouds#show"
+  get "/clouds/ajax" => "clouds#ajax"
 
-  resources :clouds, only: [:show, :new, :create] do
-    resources :comments, only: [:create]
-  end
+  resources :clouds, only: [:show, :new, :create, :ajax]
+  resources :comments, only: [:create]
 end
