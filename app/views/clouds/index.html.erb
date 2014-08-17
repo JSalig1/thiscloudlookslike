@@ -1,25 +1,25 @@
 <div class='sixteen columns cloud-page'>
   
-  <div class='ten columns alpha'>
+  <div class='eight columns alpha'>
     <div class='main-cloud-wrapper'>
     </div>
  
   </div>
 
-  <div class='six columns omega'>
+  <div class='eight columns omega'>
 
     <div class='comment-wrapper'>
       <div class='header'>
         What does this cloud look like?
       </div>
 
-      <div id="comments-displayed">
+      <%= form_for([@comment], remote: true) do |form| %>
+        <%= form.text_field :body %>
+        <%= form.hidden_field :cloud_id %>
+        <%= form.submit :send, value: 'Submit' %>
+      <% end %>
 
-        <%= form_for([@comment], remote: true) do |form| %>
-          <%= form.text_field :body %>
-          <%= form.submit :send, value: 'Vote' %>
-        <% end %>
-
+      <div id="comments-container">        
       </div>
     </div>
 

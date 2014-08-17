@@ -29,6 +29,44 @@ span.ajax-loader {
 
   .comment-wrapper {
     height: 350px;
+
+    .header {
+      font-size: 24pt;
+    }
+
+    form#new_comment {
+      display: block;
+      margin-top: 20px;
+    }
+
+    input#comment_body{
+      border: none;
+      border-bottom: 1px solid $dark-gray;
+      font-size: 22pt;
+    }
+
+    input[type=submit] {
+      background: none;
+      border: none;
+      color: $blue;      
+      font-size: 14pt;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    input[type=submit]:hover{
+      color: #000099;
+    }
+  }
+
+  #comments-container {
+    
+    margin-top: 30px;
+
+    .comment-pill {
+      font-size: 16pt;
+      display: block;
+      margin: 0px 0px 20px 0px;
+    }
   }
 
   .main-cloud-wrapper {
@@ -61,6 +99,9 @@ span.ajax-loader {
     #perma-link {
       margin-top: 15px;
       height: 45px;
+      a {
+        font-size: 14pt;
+        }
     }
   }
 
