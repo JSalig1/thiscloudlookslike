@@ -50,21 +50,8 @@ $(document).ready(function(){
 
     $('.navlink.next',pageObj).trigger('click');
 
-
     formObj.bind('ajax:success',function( e, response ){
-      var containerObj = $('#comments-container',pageObj),commentObj,str,body
-      containerObj.empty();
-      $.each( response , function( index, comment ){
-        body = comment.body.replace(/^a /i,'');
-        str = format_plural( comment.count , '<span class="count">1</span> person sees a' , '<span class="count">@count</span> people see a' );
-        commentObj = ''
-          + '<div class="comment-pill">'
-          + str
-          + '  <span class="body">'+body+'</span>'
-          + '</div>';
-
-        containerObj.append( commentObj );
-      });
+      popComments( response );
     });
 
     formObj.submit(function(){
@@ -78,5 +65,26 @@ $(document).ready(function(){
       if( code == 13 )
         formObj.submit();
     });    
+
+    if( currentComments )
+      popComments( currentComments );
   });
 });
+
+function popComments( comments ) 
+{
+  var containerObj = $('#comments-container'),commentObj,str,body
+  containerObj.empty();
+
+  $.each( comments , function( index, comment ){
+    body = comment.body;
+    str = format_plural( comment.count , '<span class="count">1</span> person sees a' , '<span class="count">@count</span> people see a' );
+    commentObj = ''
+      + '<div class="comment-pill">'
+      +    str
+      + '  <span class="body">'+body+'</span>'
+      + '</div>';
+
+    containerObj.append( commentObj );
+  });
+}

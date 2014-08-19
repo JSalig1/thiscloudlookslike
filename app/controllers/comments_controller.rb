@@ -7,21 +7,22 @@ class CommentsController < ApplicationController
     cloud = Cloud.find_by id: post[:cloud_id], approval_status: 1
     head 403 if cloud.blank?
 
-    exist_comment = Comment.find_by cloud_id: cloud.id, body: post[:body], status: 1
+    # clean up the vote string a little
+    body = post[:body].strip
+    body.sub!(/^(a)|(the) /,'')
+
+    # already voted?
+    exist_comment = Comment.getByUser session.id, cloud.id
 
     if exist_comment.blank?
-      comment = Comment.new cloud_id: cloud.id, body: post[:body], count: 1, status: 1
+      comment = Comment.new cloud_id: cloud.id, count: 1, body: body, status: 1, user_id: session.id
       comment.save
     else
-      exist_comment.count += 1
+      exist_comment.body = body
       exist_comment.save
     end
-
-    relation = Comment.where cloud_id: cloud.id, status: 1
-    comments = Array.new
-    relation.each{ |comment|
-      comments.push comment
-    }
+    
+    comments = Comment.getByCloud cloud.id
 
     respond_to do |format|
       format.json { render json: comments }
